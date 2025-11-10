@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\mcst2\OneDrive\Documents\Desktop\cmpm123_test\Assignment 5 Chess\chess\build\CMakeFiles\f9e3ea0a0e68756e8c6f4930dbde569b\Experimental.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\mcst2\OneDrive\Documents\Desktop\cmpm123_test\Assignment 5 Chess\chess\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\mcst2\OneDrive\Documents\Desktop\cmpm123_test\Assignment 5 Chess\chess\build\CMakeFiles\Experimental" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{962A591F-F133-3346-A4E7-D7E08E9770F5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

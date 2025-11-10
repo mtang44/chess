@@ -1,0 +1,9 @@
+C:/Users/mcst2/OneDrive/Documents/Desktop/cmpm123_test/Assignment 5 Chess/chess/build/CMakeFiles/Experimental.dir
+C:/Users/mcst2/OneDrive/Documents/Desktop/cmpm123_test/Assignment 5 Chess/chess/build/CMakeFiles/Nightly.dir
+C:/Users/mcst2/OneDrive/Documents/Desktop/cmpm123_test/Assignment 5 Chess/chess/build/CMakeFiles/Continuous.dir
+C:/Users/mcst2/OneDrive/Documents/Desktop/cmpm123_test/Assignment 5 Chess/chess/build/CMakeFiles/NightlyMemoryCheck.dir
+C:/Users/mcst2/OneDrive/Documents/Desktop/cmpm123_test/Assignment 5 Chess/chess/build/CMakeFiles/demo.dir
+C:/Users/mcst2/OneDrive/Documents/Desktop/cmpm123_test/Assignment 5 Chess/chess/build/CMakeFiles/PACKAGE.dir
+C:/Users/mcst2/OneDrive/Documents/Desktop/cmpm123_test/Assignment 5 Chess/chess/build/CMakeFiles/RUN_TESTS.dir
+C:/Users/mcst2/OneDrive/Documents/Desktop/cmpm123_test/Assignment 5 Chess/chess/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/mcst2/OneDrive/Documents/Desktop/cmpm123_test/Assignment 5 Chess/chess/build/CMakeFiles/ZERO_CHECK.dir
