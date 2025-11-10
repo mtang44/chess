@@ -50,7 +50,9 @@ void Chess::setUpBoard()
 
     _grid->initializeChessSquares(pieceSize, "boardsquare.png");
     
-    FENtoBoard("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR");
+   // FENtoBoard("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR");
+   // FENtoBoard("rn1qkbnr/pp2pp1p/3pb1p1/2p1P3/2B5/2N2N2/PPPP1PPP/R1BQK2R");
+    //FENtoBoard("r1bk3r/p2pBpNp/n4n2/1p1NP2P/6P1/3P4/P1P1K3/q5b1");
 
     startGame();
 }
@@ -66,20 +68,21 @@ void Chess::FENtoBoard(const std::string& fen) {
     // 4: en passant target square (in algebraic notation, or -)
     // 5: halfmove clock (number of halfmoves since the last capture or pawn advance)
 
-    map<char, string> piecesImages;
-    piecesImages['b'] = "b_bishop.png";
-    piecesImages['n'] = "b_knight.png";
-    piecesImages['r'] = "b_rook.png";
-    piecesImages['k'] = "b_king.png";
-    piecesImages['p'] = "b_pawn.png";
-    piecesImages['q'] = "b_queen.png";
+    // will need later.
+    // map<char, string> piecesImages;
+    // piecesImages['b'] = "b_bishop.png";
+    // piecesImages['n'] = "b_knight.png";
+    // piecesImages['r'] = "b_rook.png";
+    // piecesImages['k'] = "b_king.png";
+    // piecesImages['p'] = "b_pawn.png";
+    // piecesImages['q'] = "b_queen.png";
 
-    piecesImages['B'] = "w_bishop.png";
-    piecesImages['N'] = "w_knight.png";
-    piecesImages['R'] = "w_rook.png";
-    piecesImages['K'] = "w_king.png";
-    piecesImages['P'] = "w_pawn.png";
-    piecesImages['Q'] = "w_queen.png";
+    // piecesImages['B'] = "w_bishop.png";
+    // piecesImages['N'] = "w_knight.png";
+    // piecesImages['R'] = "w_rook.png";
+    // piecesImages['K'] = "w_king.png";
+    // piecesImages['P'] = "w_pawn.png";
+    // piecesImages['Q'] = "w_queen.png";
     
     _grid->forEachSquare([](ChessSquare* square, int x, int y){
         square ->setBit(nullptr);

@@ -1,0 +1,15 @@
+CMPM 123 Assignment 5 Chess Fen String - Michael Tang 
+
+For this assignment we need to be able to read a fen string and convert the chess board to the proper board state 
+For this assignment I referenced the instructional yuja class video where the professor breaks down the 
+implementation of the FENtoBoard code. 
+
+How FENtoBoard works is it starts by reading off each character in the fen string. If the string is
+a '/' then the code moves the current row down a line.
+otherwise if the character is a number, that number corresponds to the number of 
+open spaces until the next piece. We take that number and add it to the current column. 
+
+If the string is not a number of '/' then it must be a piece so we then use a switch case testing for each possible piece. Knight, pawn, queen etc. 
+Finally the game will create a bit object connected to the player and set that bit's position to the hitholder's position. We also call SetGameTag which is used to store which side the piece is on.
+
+The code provided by the professor was very straightforward. 
