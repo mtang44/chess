@@ -1,0 +1,4 @@
+17:41:24 [Info] Game started successfully
+17:41:24 [Game Event] Application initialized
+17:42:15 [Info] Outputting to log file
+17:42:15 [Info] Adding log messages to log

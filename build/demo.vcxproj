@@ -418,6 +418,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\mcst2\OneDrive\Documents\Desktop\cmpm123_test\Assignment 5 Chess\chess\classes\Othello.cpp" />
     <ClCompile Include="C:\Users\mcst2\OneDrive\Documents\Desktop\cmpm123_test\Assignment 5 Chess\chess\classes\Connect4.cpp" />
     <ClCompile Include="C:\Users\mcst2\OneDrive\Documents\Desktop\cmpm123_test\Assignment 5 Chess\chess\classes\Chess.cpp" />
+    <ClCompile Include="C:\Users\mcst2\OneDrive\Documents\Desktop\cmpm123_test\Assignment 5 Chess\chess\Logger.cpp" />
     <ClCompile Include="C:\Users\mcst2\OneDrive\Documents\Desktop\cmpm123_test\Assignment 5 Chess\chess\imgui\imgui_impl_dx11.cpp" />
     <ClCompile Include="C:\Users\mcst2\OneDrive\Documents\Desktop\cmpm123_test\Assignment 5 Chess\chess\main_win32.cpp" />
     <ClCompile Include="C:\Users\mcst2\OneDrive\Documents\Desktop\cmpm123_test\Assignment 5 Chess\chess\imgui\imgui_impl_win32.cpp" />
