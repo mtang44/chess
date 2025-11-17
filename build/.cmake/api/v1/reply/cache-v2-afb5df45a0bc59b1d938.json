@@ -43,7 +43,19 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/lib.exe"
+			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.exe"
+		},
+		{
+			"name" : "CMAKE_BUILD_TYPE",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "No help, variable specified on the command line."
+				}
+			],
+			"type" : "STRING",
+			"value" : "Debug"
 		},
 		{
 			"name" : "CMAKE_CACHEFILE_DIR",
@@ -363,7 +375,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/machine:X86"
+			"value" : "/machine:x64"
 		},
 		{
 			"name" : "CMAKE_EXE_LINKER_FLAGS_DEBUG",
@@ -499,7 +511,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "win32"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_GENERATOR_TOOLSET",
@@ -511,7 +523,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "host=x86"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_HOME_DIRECTORY",
@@ -551,7 +563,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/link.exe"
+			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.exe"
 		},
 		{
 			"name" : "CMAKE_LIST_FILE_NAME",
@@ -579,7 +591,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/machine:X86"
+			"value" : "/machine:x64"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS_DEBUG",
@@ -939,7 +951,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/machine:X86"
+			"value" : "/machine:x64"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS_DEBUG",
@@ -1051,7 +1063,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/machine:X86"
+			"value" : "/machine:x64"
 		},
 		{
 			"name" : "CMAKE_STATIC_LINKER_FLAGS_DEBUG",

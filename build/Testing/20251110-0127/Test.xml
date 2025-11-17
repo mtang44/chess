@@ -3,7 +3,7 @@
 	BuildStamp="20251110-0127-Experimental"
 	Name="ME-Laptop"
 	Generator="ctest-4.1.1"
-	CompilerName="C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx86/x86/cl.exe"
+	CompilerName="C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe"
 	CompilerVersion="19.44.35214.0"
 	OSName="Windows"
 	Hostname="ME-Laptop"
@@ -19,17 +19,17 @@
 	ProcessorCacheSize="64"
 	NumberOfLogicalCPU="16"
 	NumberOfPhysicalCPU="8"
-	TotalVirtualMemory="31066"
+	TotalVirtualMemory="30554"
 	TotalPhysicalMemory="15706"
 	LogicalProcessorsPerPhysical="2"
 	ProcessorClockFrequency="1801"
 	>
 	<Testing>
-		<StartDateTime>Nov 09 20:33 Pacific Standard Time</StartDateTime>
-		<StartTestTime>1762749207</StartTestTime>
+		<StartDateTime>Nov 16 18:51 Central Standard Time</StartDateTime>
+		<StartTestTime>1763340697</StartTestTime>
 		<TestList/>
-		<EndDateTime>Nov 09 20:33 Pacific Standard Time</EndDateTime>
-		<EndTestTime>1762749207</EndTestTime>
+		<EndDateTime>Nov 16 18:51 Central Standard Time</EndDateTime>
+		<EndTestTime>1763340697</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

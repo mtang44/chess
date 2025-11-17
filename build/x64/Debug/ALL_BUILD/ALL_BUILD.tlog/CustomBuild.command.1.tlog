@@ -1,0 +1,10 @@
+^C:\USERS\MCST2\ONEDRIVE\DOCUMENTS\DESKTOP\CMPM123_TEST\ASSIGNMENT 5 CHESS\CHESS\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/mcst2/OneDrive/Documents/Desktop/cmpm123_test/Assignment 5 Chess/chess" "-BC:/Users/mcst2/OneDrive/Documents/Desktop/cmpm123_test/Assignment 5 Chess/chess/build" --check-stamp-file "C:/Users/mcst2/OneDrive/Documents/Desktop/cmpm123_test/Assignment 5 Chess/chess/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
