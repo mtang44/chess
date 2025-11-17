@@ -4,6 +4,7 @@
 #include <cmath>
 #include <map>
 #include <string>
+#include "../Logger.h"
 
 
 
@@ -66,6 +67,7 @@ void Chess::setUpBoard()
 
    // FENtoBoard("rn1qkbnr/pp2pp1p/3pb1p1/2p1P3/2B5/2N2N2/PPPP1PPP/R1BQK2R");
     //FENtoBoard("r1bk3r/p2pBpNp/n4n2/1p1NP2P/6P1/3P4/P1P1K3/q5b1");
+     startGame();
     for(int i = 0; i < 64; i++)
         {
             _knightBitBoards[i] = generateKnightMoveBitBoard(i);
@@ -74,7 +76,7 @@ void Chess::setUpBoard()
         }
         string state = stateString();
     _moves = generateAllMoves(WHITE); // test pass in state?
-    startGame();
+ 
 }
 
 void Chess::FENtoBoard(const std::string& fen) {
@@ -233,6 +235,9 @@ Player* Chess::checkForWinner()
 
 bool Chess::checkForDraw()
 {
+    char currentPlayerColor = getCurrentPlayer() ->playerNumber() == 0? WHITE : BLACK;
+    cout << "Generating all moves for player color: " + to_string(currentPlayerColor);
+    _moves = generateAllMoves(currentPlayerColor);
     return false;
 }
 
@@ -361,9 +366,16 @@ std::vector<BitMove> Chess:: generateAllMoves(char color)
 
     uint64_t whiteOccupancy = whiteKnights | whitePawns | whiteRooks | whiteBishops | whiteQueen | whitePawns |1ULL<<17 ; 
     uint64_t blackOccupancy = blackKnights | blackPawns | blackRooks | blackBishops | blackQueen | blackPawns |1ULL<<17; 
+    if(color == BLACK)
+    {
+        generateKnightMoves(moves,blackKnights,~blackOccupancy);
+        generatePawnMoves(moves,blackPawns,whiteOccupancy,~whiteOccupancy &~blackOccupancy, color);// generatePawnMovesList(moves,blackPawns,whiteOccupancy,blackOccupancy,0, BLACK);
+       
+        return moves;
+    }
     generateKnightMoves(moves,whiteKnights,~whiteOccupancy);
     generatePawnMoves(moves,whitePawns,blackOccupancy,~whiteOccupancy &~blackOccupancy, color);// generatePawnMovesList(moves,whitePawns,blackOccupancy,whiteOccupancy,0, WHITE);
-   // generatePawnMovesList(moves,whitePawns,blackOccupancy,whiteOccupancy,0, BLACK);
+   
 
     return moves;
 
@@ -407,7 +419,7 @@ void Chess:: generatePawnMoves(std::vector<BitMove> &moves,const BitboardElement
 
     //calculate pawn moes forward
     BitboardElement singleMoves = (color == WHITE) ? (pawns.getData() << 8) & emptySquares.getData() : (pawns.getData() >> 8) & emptySquares.getData();
-    BitboardElement doubleMoves = (color == WHITE) ? ((singleMoves.getData() & Rank3) <<8) & emptySquares.getData() : ((singleMoves.getData() & Rank3) >> 8) & emptySquares.getData();
+    BitboardElement doubleMoves = (color == WHITE) ? ((singleMoves.getData() & Rank3) <<8) & emptySquares.getData() : ((singleMoves.getData() & Rank6) >> 8) & emptySquares.getData();
     BitboardElement capturesLeft = (color == WHITE) ?((pawns.getData() & NotAFile) <<7) & enemyPieces.getData() : ((pawns.getData() & NotAFile) >> 9) & enemyPieces.getData();
     BitboardElement capturesRight = (color == WHITE) ?((pawns.getData() & NotHFile) <<9) & enemyPieces.getData() : ((pawns.getData() & NotHFile) >> 7) & enemyPieces.getData();
 
