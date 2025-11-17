@@ -46,10 +46,11 @@ public:
 
     BitBoard generateKnightMoveBitBoard(int square);
     void generateKnightMoves(std::vector<BitMove>& moves, BitboardElement knightBoard, uint64_t emptySquares);
-    void generatePawnMovesList(std::vector<BitMove> &moves,const BitboardElement pawns,const BitboardElement enemyPieces, const BitboardElement occupancy, char color);
+    void generatePawnMoves(std::vector<BitMove> &moves,const BitboardElement pawns,const BitboardElement enemyPieces, const BitboardElement occupancy, char color);
     
     void addPawnBitBoardMovesToList(std::vector<BitMove> & moves, BitboardElement bitboard, int  shift);
-    std::vector<BitMove> generateAllMoves();
+    std::vector<BitMove> generateAllMoves(char color);
+    void clearBoardHighlights();
 
 private:
     Bit* PieceForPlayer(const int playerNumber, ChessPiece piece);
