@@ -1,3 +1,35 @@
+CMPM 123 Assignment 6 Chess Movement - Michael Tang 
+For this assignment we had to take out chess base from the last assignment and using bitboards
+we had to create the movements for pawns, knights, and kings for both black and white. 
+
+This assignment is build around the implementation of bitBoard.h. Chess.cpp creates several functions like 
+generateAllMoves(), generatePawnMoves, generateKingMoves, generateKnightMoves() etc. 
+
+At the start of the game, we begin by looping through all 64 grid positions and create both a knight bitboard element and a king bitboard element. These bitboards will allow us to compute all possible moves that piece can 
+make from that square. This calls both generateKnightMoveBitBoard() and generateKingMoveBitBoard(). In these functions we take generate the rank and files that the piece can move to using known chess movement offsets. 
+This information is stored in the bitboard which tells which spots a piece could move to if there were no pieces there. 
+
+The next part of the assignment is to generateALL moves for the current player using generateAllMoves(). 
+In this function, we create both the current player's pieces occupancy on the board, and the enemy pieces occupancy.  After we create a bitboard for where all pieces are on the board. we call  generateKnightMoves,  generatePawnMoves, and  generateKingMoves for each type of piece. 
+
+These functions compare the possible movement bitboard to the occupancy bitboard by comparing (&ing) bits together. If a friendly piece is blocking a movement then the fucntion removes that move as a valid move. Likewise if the piece would move out of bounds, the function prevents that. In generatePawnMoves,
+the function is a bit more specific which having to check if the pawn can double move at the starting rank, and if there are pieces to it's diagonal right and left. Once we know the valid moves, we just do a bitwise shift by a unique number for each piece to simulate movement. 
+
+I recieved help from this assignment by watching the lecture videos and using the sample code provided in the videos to help build the program. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 CMPM 123 Assignment 5 Chess Fen String - Michael Tang 
 
 For this assignment we need to be able to read a fen string and convert the chess board to the proper board state 

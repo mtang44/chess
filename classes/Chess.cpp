@@ -414,17 +414,7 @@ void Chess::addPawnBitBoardMovesToList(std::vector<BitMove> & moves, BitboardEle
 
 void Chess:: generatePawnMoves(std::vector<BitMove> &moves,const BitboardElement pawns,const BitboardElement enemyPieces, const BitboardElement emptySquares, char color)
 {
-    // pawns << 8 shifts all pawns up one rank
-    // pawns << 16 shifts all pawns up two ranks
-
-    //singlePush = pawns << 8
-    //single & !occupied
-    // RANK_3 = 0x0000000000FF0000
-    // doublePush = onStartRank << 8
-
-    //left attack = pawns << 7
-    //right attacks = pawns << 9
-    
+   
 
     if(pawns.getData() == 0)
     {
