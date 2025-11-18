@@ -71,8 +71,7 @@ void Chess::setUpBoard()
     for(int i = 0; i < 64; i++)
         {
             _knightBitBoards[i] = generateKnightMoveBitBoard(i);
-            
-            // _kingBitBoards[i] = generateKingMoveBitBoard(i);
+             _kingBitBoards[i] = generateKingMoveBitBoard(i);
         }
         string state = stateString();
     _moves = generateAllMoves(WHITE); // test pass in state?
@@ -288,6 +287,25 @@ BitBoard Chess::generateKnightMoveBitBoard(int square)
     }
     return bitboard;
 }
+BitBoard Chess::generateKingMoveBitBoard(int square)
+{
+    BitBoard bitboard = 0ULL;
+    int rank = square / 8 ;
+    int file = square % 8;
+    pair<int,int> kingOffsets[] = {
+        {1,0}, {1,1}, {0,1}, {-1,1},
+        {-1,0}, {-1,-1}, {0,-1}, {1,-1}};
+    constexpr uint64_t oneBit =1;
+    for(auto[dr,df] : kingOffsets)
+    {
+        int r = rank + dr, f = file + df;
+        if(r>=0 && r < 8 && f >= 0 && f < 8)
+        {
+            bitboard |= oneBit << (r * 8 + f);
+        }
+    }
+    return bitboard;
+}
 // Generate actual move objects from a bitboard
 void Chess::generateKnightMoves(std::vector<BitMove>& moves, BitboardElement knightBoard, uint64_t emptySquares) {
    if(knightBoard.getData() == 0){
@@ -300,25 +318,20 @@ void Chess::generateKnightMoves(std::vector<BitMove>& moves, BitboardElement kni
            moves.emplace_back(fromSquare, toSquare, Knight);
         });
     });
-    // while(knightBoard)
-    // {
-    //     int fromSquare = bitScanForward(knightBoard);
-    //     uint64_t moveBitboard = _knightBitBoards[fromSquare];
-    //     //printBitboard(moveBitboard);
-    //     //efficiently iterates through only the set bits
-    //     while(moveBitboard)
-    //     {
-    //         int toSquare = bitScanForward(moveBitboard);
-    //         if(!(occupancy & (1ULL<<toSquare))){
-    //             moves.emplace_back(BitMove(fromSquare,toSquare,Knight));
-    //         }
-    //         //clear the lowest set bit
-    //         moveBitboard &=moveBitboard -1;
-    //     }
-    //     //clear the lowest set bit
-    //     knightBoard &= knightBoard -1;
-    // }
-    
+}
+void Chess::generateKingMoves(std::vector<BitMove> & moves, BitboardElement kingBoard, uint64_t emptySquares)
+{
+    if(kingBoard.getData() == 0)
+    {
+        return;
+    }
+    kingBoard.forEachBit([&](int fromSquare){
+        BitboardElement moveBitboard = BitboardElement(_kingBitBoards[fromSquare].getData() & emptySquares);
+        moveBitboard.forEachBit([&](int toSquare){
+            moves.emplace_back(fromSquare, toSquare, King);
+        });
+    });
+
 }
 void Chess::clearBoardHighlights()
 {
@@ -339,12 +352,15 @@ std::vector<BitMove> Chess:: generateAllMoves(char color)
     uint64_t whiteRooks = 0LL;
     uint64_t whiteBishops = 0LL;
     uint64_t whiteQueen = 0LL;
+
     uint64_t blackKnights = 0LL;
     uint64_t blackPawns = 0LL;
     uint64_t blackKing = 0LL;
     uint64_t blackRooks = 0LL;
     uint64_t blackBishops = 0LL;
     uint64_t blackQueen = 0LL;
+
+
     const char *whitePieces = "PNBRQK";
     const char *blackPieces = "pnbrqk";
 
@@ -364,16 +380,18 @@ std::vector<BitMove> Chess:: generateAllMoves(char color)
         else if(state[i] == blackPieces[5]) blackKing |= 1ULL<<i;
     }
 
-    uint64_t whiteOccupancy = whiteKnights | whitePawns | whiteRooks | whiteBishops | whiteQueen | whitePawns |1ULL<<17 ; 
-    uint64_t blackOccupancy = blackKnights | blackPawns | blackRooks | blackBishops | blackQueen | blackPawns |1ULL<<17; 
+    uint64_t whiteOccupancy = whiteKnights | whitePawns | whiteRooks | whiteBishops | whiteQueen | whitePawns | whiteKing |1ULL<<17 ; 
+    uint64_t blackOccupancy = blackKnights | blackPawns | blackRooks | blackBishops | blackQueen | blackPawns | blackKing |1ULL<<17; 
     if(color == BLACK)
     {
         generateKnightMoves(moves,blackKnights,~blackOccupancy);
+        generateKingMoves(moves,blackKing,~blackOccupancy);
         generatePawnMoves(moves,blackPawns,whiteOccupancy,~whiteOccupancy &~blackOccupancy, color);// generatePawnMovesList(moves,blackPawns,whiteOccupancy,blackOccupancy,0, BLACK);
        
         return moves;
     }
     generateKnightMoves(moves,whiteKnights,~whiteOccupancy);
+    generateKingMoves(moves,whiteKing,~whiteOccupancy);
     generatePawnMoves(moves,whitePawns,blackOccupancy,~whiteOccupancy &~blackOccupancy, color);// generatePawnMovesList(moves,whitePawns,blackOccupancy,whiteOccupancy,0, WHITE);
    
 

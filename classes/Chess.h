@@ -45,7 +45,9 @@ public:
     Grid* getGrid() override { return _grid; }
 
     BitBoard generateKnightMoveBitBoard(int square);
+    BitBoard generateKingMoveBitBoard(int square);
     void generateKnightMoves(std::vector<BitMove>& moves, BitboardElement knightBoard, uint64_t emptySquares);
+    void generateKingMoves(std::vector<BitMove> & moves, BitboardElement kingBoard, uint64_t emptySquares);
     void generatePawnMoves(std::vector<BitMove> &moves,const BitboardElement pawns,const BitboardElement enemyPieces, const BitboardElement occupancy, char color);
     
     void addPawnBitBoardMovesToList(std::vector<BitMove> & moves, BitboardElement bitboard, int  shift);
@@ -61,7 +63,6 @@ private:
 
     Grid* _grid;
     BitboardElement _knightBitBoards[64];
-    BitboardElement _pawnBitBoards[64];
     BitboardElement _kingBitBoards[64];
     std::vector<BitMove> _moves;
 };
