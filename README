@@ -2,6 +2,8 @@ CMPM 123 Assignment 6 Chess Movement - Michael Tang
 For this assignment we had to take out chess base from the last assignment and using bitboards
 we had to create the movements for pawns, knights, and kings for both black and white. 
 
+
+
 This assignment is build around the implementation of bitBoard.h. Chess.cpp creates several functions like 
 generateAllMoves(), generatePawnMoves, generateKingMoves, generateKnightMoves() etc. 
 
