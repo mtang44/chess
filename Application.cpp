@@ -145,6 +145,7 @@ namespace ClassGame {
                 gameOver = true;
                 gameWinner = -1;
             }
+           
         }
         void showLogWindow(bool* p_open)
         {

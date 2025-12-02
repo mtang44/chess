@@ -4,11 +4,39 @@
 #include "Game.h"
 #include "Grid.h"
 #include "BitBoard.h"
+#include "MagicBitBoards.h"
 
 
 constexpr int pieceSize = 80;
 typedef uint64_t BitBoard;
 constexpr BitBoard BitZero = 1ULL;
+constexpr int negativeInfinity = -1000000;
+constexpr int positiveInfinity = 1000000;
+constexpr int WHITE = +1;
+constexpr int BLACK = -1;
+
+enum AllBitBoards
+{
+    WhitePawnBitBoard,
+    WhiteKnightBitBoard,
+    WhiteBishopBitBoard,
+    WhiteRookBitBoard,
+    WhiteQueenBitBoard,
+    WhiteKingBitBoard,
+
+    BlackPawnBitBoard,
+    BlackKnightBitBoard,
+    BlackBishopBitBoard,
+    BlackRookBitBoard,
+    BlackQueenBitBoard,
+    BlackKingBitBoard,
+
+    OCCUPANCY,
+    EMPTY_SQUARES,
+    BLACK_ALL_PIECES,
+    WHITE_ALL_PIECES,
+    e_numBitBoards
+};
 // enum ChessPiece
 // {
 //     NoPiece,
@@ -49,6 +77,10 @@ public:
     void generateKnightMoves(std::vector<BitMove>& moves, BitboardElement knightBoard, uint64_t emptySquares);
     void generateKingMoves(std::vector<BitMove> & moves, BitboardElement kingBoard, uint64_t emptySquares);
     void generatePawnMoves(std::vector<BitMove> &moves,const BitboardElement pawns,const BitboardElement enemyPieces, const BitboardElement occupancy, char color);
+
+    void generateBishopMoves(std::vector<BitMove>& moves, BitboardElement bishopBoard, uint64_t occupancy, uint64_t friendlyPieces);
+    void generateQueenMoves(std::vector<BitMove>& moves, BitboardElement queenBoard, uint64_t occupancy, uint64_t friendlyPieces);
+    void generateRookMoves(std::vector<BitMove>& moves, BitboardElement rookBoard, uint64_t occupancy, uint64_t friendlyPieces);
     
     void addPawnBitBoardMovesToList(std::vector<BitMove> & moves, BitboardElement bitboard, int  shift);
     std::vector<BitMove> generateAllMoves(char color);
@@ -62,7 +94,12 @@ private:
     
 
     Grid* _grid;
+    int _currentPlayer;
     BitboardElement _knightBitBoards[64];
     BitboardElement _kingBitBoards[64];
+    BitboardElement _bishopBitBoards[64];
+    int _bitBoardLookup[128];
+    BitboardElement _bitBoards[e_numBitBoards];
     std::vector<BitMove> _moves;
+    
 };
