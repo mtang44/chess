@@ -65,6 +65,7 @@ public:
 
     Player *checkForWinner() override;
     bool checkForDraw() override;
+    bool gameHasAI() override { return true; }
 
     std::string initialStateString() override;
     std::string stateString() override;
@@ -83,7 +84,7 @@ public:
     void generateRookMoves(std::vector<BitMove>& moves, BitboardElement rookBoard, uint64_t occupancy, uint64_t friendlyPieces);
     
     void addPawnBitBoardMovesToList(std::vector<BitMove> & moves, BitboardElement bitboard, int  shift);
-    std::vector<BitMove> generateAllMoves(char color);
+    std::vector<BitMove> generateAllMoves(const std::string& state, char color);
     void clearBoardHighlights();
 
 private:
@@ -91,6 +92,9 @@ private:
     Player* ownerAt(int x, int y) const;
     void FENtoBoard(const std::string& fen);
     char pieceNotation(int x, int y) const;
+    void updateAI();
+    int negamax(std::string& state, int depth, int alpha, int beta, int playerColor);
+    int evaluateBoard(const std::string& state);
     
 
     Grid* _grid;
@@ -99,7 +103,10 @@ private:
     BitboardElement _kingBitBoards[64];
     BitboardElement _bishopBitBoards[64];
     int _bitBoardLookup[128];
+    int _countMoves = 0;
     BitboardElement _bitBoards[e_numBitBoards];
     std::vector<BitMove> _moves;
+
+
     
 };
