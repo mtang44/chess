@@ -1,3 +1,19 @@
+CMPM 123 Assignment 7 Chess Negamax - Michael Tang 
+
+For this assignment we had to finish implementing negamax to our chess AI and reach a depth of at least 3
+
+My chess AI code was created using the code provided in the 'Implementing Negamax for Chess AI"
+document highlight how to implement both update AI, and negamax. 
+
+For this assignment I was able to enable a and play the chess AI with a negamax depth of 4. The current unoptimized updateAI/negamax takes too long at a depth of 5. One of the challanges I experienced was not running magicBitBoard in chess.cpp and instead making it its own .h file. This resulted in a problem where when the bishop / rook / queen would try to generate the moves, it would crash the progam as there
+were no moves to be read.  I also referenced the lecture videos to complete the implementation of 
+bishop / rook / queen movement
+
+
+
+
+
+
 CMPM 123 Assignment 6 Chess Movement - Michael Tang 
 For this assignment we had to take out chess base from the last assignment and using bitboards
 we had to create the movements for pawns, knights, and kings for both black and white. 

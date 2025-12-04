@@ -982,15 +982,7 @@ void Chess::setUpBoard()
 }
 
 void Chess::FENtoBoard(const std::string& fen) {
-    // convert a FEN string to a board
-    // FEN is a space delimited string with 6 fields
-    // 1: piece placement (from white's perspective)
-    // NOT PART OF THIS ASSIGNMENT BUT OTHER THINGS THAT CAN BE IN A FEN STRING
-    // ARE BELOW
-    // 2: active color (W or B)
-    // 3: castling availability (KQkq or -)
-    // 4: en passant target square (in algebraic notation, or -)
-    // 5: halfmove clock (number of halfmoves since the last capture or pawn advance)
+    
 
     // will need later.
     // map<char, string> piecesImages;
@@ -1318,25 +1310,7 @@ std::vector<BitMove> Chess:: generateAllMoves(const std::string& state, char col
     //test
     
     _bitBoards[OCCUPANCY] = _bitBoards[WHITE_ALL_PIECES].getData() | _bitBoards[BLACK_ALL_PIECES].getData();
-    // const char *whitePieces = "PNBRQK";
-    // const char *blackPieces = "pnbrqk";
-
-    /*for(int i = 0; i < 64; i++)
-    {
-        if(state[i] == whitePieces[0]) whitePawns |= 1ULL << i;
-        else if(state[i] == whitePieces[1]) whiteKnights |= 1ULL<<i;
-        else if(state[i] == whitePieces[2]) whiteBishops |= 1ULL<<i;
-        else if(state[i] == whitePieces[3]) whiteRooks |= 1ULL<<i;
-        else if(state[i] == whitePieces[4]) whiteQueen |= 1ULL<<i;
-        else if(state[i] == whitePieces[5]) whiteKing |= 1ULL<<i;
-        else if(state[i] == blackPieces[0]) blackPawns |= 1ULL << i;
-        else if(state[i] == blackPieces[1]) blackKnights |= 1ULL<<i;
-        else if(state[i] == blackPieces[2]) blackBishops |= 1ULL<<i;
-        else if(state[i] == blackPieces[3]) blackRooks |= 1ULL<<i;
-        else if(state[i] == blackPieces[4]) blackQueen |= 1ULL<<i;
-        else if(state[i] == blackPieces[5]) blackKing |= 1ULL<<i;
-    }*/
-    //known works for pawns / king / knight ==============================
+   
      uint64_t whiteOccupancy = whiteKnights | whitePawns | whiteRooks | whiteBishops | whiteQueen | whitePawns | whiteKing |1ULL<<17; 
      uint64_t blackOccupancy = blackKnights | blackPawns | blackRooks | blackBishops | blackQueen | blackPawns | blackKing |1ULL<<17; 
     
@@ -1370,7 +1344,7 @@ std::vector<BitMove> Chess:: generateAllMoves(const std::string& state, char col
     // prof code: 
     //============
 
-    
+    // could optimize 
     // cout << "generating Knight Moves" << endl;
     // generateKnightMoves(moves, _bitBoards[WhiteKnightBitBoard + bitIndex], ~_bitBoards[OCCUPANCY].getData());
     // cout << "generating pawn Moves" << endl;
