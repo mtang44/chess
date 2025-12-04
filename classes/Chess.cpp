@@ -1468,7 +1468,7 @@ void Chess::updateAI(){
         // make the move on our state copy
         state[move.to] = pieceMoving;
         state[move.from] = '0';
-        int moveVal = -negamax(state, 3, negativeInfinity,positiveInfinity, WHITE);
+        int moveVal = -negamax(state, 4, negativeInfinity,positiveInfinity, WHITE);
         // undo the move
 
         state[move.from] = pieceMoving;
